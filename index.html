@@ -967,11 +967,12 @@
   async function initCounter() {
     try {
       // Increment shared visit count
-      let visits = 1;
+      let visits = 0;
       try {
         const res = await window.storage.get('visits', true);
-        visits = parseInt(res.value || '0', 10) + 1;
-      } catch(e) { visits = 1; }
+        visits = parseInt(res.value || '0', 10);
+      } catch(e) { visits = 0; } // key doesn't exist yet - start from 0
+      visits += 1;
       await window.storage.set('visits', String(visits), true);
 
       // Display with retro spacing
