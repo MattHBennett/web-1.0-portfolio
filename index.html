@@ -548,7 +548,7 @@
     <div class="subtitle">★ SENIOR SOFTWARE ENGINEER ★</div>
     <div class="tagline">Welcome to my corner of the World Wide Web! You are visitor #</div>
     <div class="visitor-counter">
-      <span>0 0 4 2 6 8</span>
+      <span id="visit-counter">0 0 0 0 0 1</span>
     </div>
     <div style="margin-top: 8px;">
       <span class="burst">NEW!</span>
@@ -614,18 +614,35 @@
         <h3>:: FAVE LINKS ::</h3>
         <ul>
           <li><a href="https://linkedin.com/in/matthew-h-bennett/" style="color:#00ffcc; font-family:'VT323',monospace; font-size:16px;">LinkedIn</a></li>
-          <li><a href="mailto:Matt.H.Bennett@gmail.com" style="color:#00ffcc; font-family:'VT323',monospace; font-size:16px;">E-mail me!!</a></li>
+          <li><a href="/cdn-cgi/l/email-protection#df92beababf197f19dbab1b1baabab9fb8b2beb6b3f1bcb0b2" style="color:#00ffcc; font-family:'VT323',monospace; font-size:16px;">E-mail me!!</a></li>
           <li>React Docs</li>
           <li>Stack Overflow</li>
           <li>GitHub</li>
         </ul>
       </div>
 
-      <div class="sidebar-box" style="text-align:center;">
+      <div class="sidebar-box" style="text-align:center;" id="player-box">
         <h3>:: NOW PLAYING ::</h3>
-        <p style="font-size:22px; animation: spin 4s linear infinite; display:inline-block;">💿</p>
-        <p>Lo-fi Coding Beats</p>
-        <p style="color:#ff9900;">▶ [▓▓▓▓░░░░] 2:34</p>
+        <p id="disc-emoji" style="font-size:22px; display:inline-block;">💿</p>
+        <p id="track-name" style="font-family:'VT323',monospace; font-size:15px; color:#00ffcc;">Lo-fi Coding Beats</p>
+        <p style="font-family:'VT323',monospace; font-size:13px; color:#aaaaff; margin: 2px 0;">Track 1 / 3</p>
+        <div style="margin: 5px 0;">
+          <div style="background:#000; border:1px inset #666; height:8px; width:100%; position:relative;">
+            <div id="progress-bar" style="background:linear-gradient(90deg,#00ff00,#00cc00); height:100%; width:0%; transition:width 0.5s;"></div>
+          </div>
+          <div style="display:flex; justify-content:space-between; font-family:'VT323',monospace; font-size:13px; color:#888;">
+            <span id="time-cur">0:00</span><span id="time-tot">∞</span>
+          </div>
+        </div>
+        <div style="display:flex; justify-content:center; gap:4px; margin-top:4px;">
+          <button onclick="prevTrack()" style="background:linear-gradient(180deg,#c0c0c0,#808080);border:2px outset #c0c0c0;color:#000;font-family:'VT323',monospace;font-size:16px;padding:1px 6px;cursor:pointer;" title="Prev">⏮</button>
+          <button id="play-btn" onclick="togglePlay()" style="background:linear-gradient(180deg,#c0c0c0,#808080);border:2px outset #c0c0c0;color:#000080;font-family:'VT323',monospace;font-size:16px;padding:1px 8px;cursor:pointer;font-weight:bold;">▶ PLAY</button>
+          <button onclick="nextTrack()" style="background:linear-gradient(180deg,#c0c0c0,#808080);border:2px outset #c0c0c0;color:#000;font-family:'VT323',monospace;font-size:16px;padding:1px 6px;cursor:pointer;" title="Next">⏭</button>
+        </div>
+        <div style="margin-top:5px; display:flex; align-items:center; gap:4px; justify-content:center;">
+          <span style="font-family:'VT323',monospace; font-size:13px; color:#888;">VOL:</span>
+          <input type="range" min="0" max="100" value="60" oninput="setVolume(this.value)" style="width:70px; cursor:pointer;" title="Volume">
+        </div>
       </div>
 
       <div class="sidebar-box">
@@ -856,7 +873,7 @@
             </tr>
             <tr>
               <td>📧 E-mail</td>
-              <td><a href="mailto:Matt.H.Bennett@gmail.com">Matt.H.Bennett@gmail.com</a></td>
+              <td><a href="/cdn-cgi/l/email-protection#9cd1fde8e8b2d4b2def9f2f2f9e8e8dcfbf1fdf5f0b2fff3f1"><span class="__cf_email__" data-cfemail="9bd6faefefb5d3b5d9fef5f5feefefdbfcf6faf2f7b5f8f4f6">[email&#160;protected]</span></a></td>
             </tr>
             <tr>
               <td>🔗 LinkedIn</td>
@@ -881,28 +898,32 @@
           <p style="font-family:'VT323',monospace; font-size:17px; color:#ffcc00; margin-bottom: 8px;">
             🌟 PLEASE SIGN MY GUESTBOOK!! It means so much to me!! 🌟
           </p>
-          <div style="border: 2px inset #666; background: #000050; padding: 8px; margin-bottom: 8px;">
-            <p style="font-family:'VT323',monospace; font-size:16px; color:#00ff00;">
-              <strong style="color:#ffff00;">xX_RecruitPro_Xx</strong> says:<br>
-              "wow gr8 resume page!! adding to my bookmarks!!!! 👍👍"
-            </p>
+
+          <!-- SIGN FORM -->
+          <div id="gb-form-wrap" style="border:2px outset #c0c0c0; background:#000060; padding:8px; margin-bottom:10px;">
+            <p style="font-family:'Press Start 2P',monospace; font-size:9px; color:#ffff00; margin-bottom:8px; text-align:center;">✍ ADD YOUR ENTRY ✍</p>
+            <div style="margin-bottom:6px;">
+              <label style="font-family:'VT323',monospace; font-size:16px; color:#00ffcc; display:block; margin-bottom:2px;">Your Name / Handle:</label>
+              <input id="gb-name" type="text" maxlength="30" placeholder="e.g. CoolCoder99"
+                style="width:100%; background:#000030; border:2px inset #888; color:#00ff00; font-family:'VT323',monospace; font-size:16px; padding:3px 6px; outline:none;">
+            </div>
+            <div style="margin-bottom:8px;">
+              <label style="font-family:'VT323',monospace; font-size:16px; color:#00ffcc; display:block; margin-bottom:2px;">Your Message:</label>
+              <textarea id="gb-msg" maxlength="200" rows="3" placeholder="Leave a message!! (max 200 chars)"
+                style="width:100%; background:#000030; border:2px inset #888; color:#00ff00; font-family:'VT323',monospace; font-size:15px; padding:3px 6px; outline:none; resize:vertical;"></textarea>
+            </div>
+            <div style="text-align:center;">
+              <button onclick="signGuestbook()" 
+                style="background:linear-gradient(180deg,#c0c0c0,#808080); border:3px outset #c0c0c0; color:#000080; font-family:'Press Start 2P',monospace; font-size:9px; padding:5px 12px; cursor:pointer; font-weight:bold;">
+                [ SIGN IT!! ]
+              </button>
+            </div>
+            <p id="gb-status" style="font-family:'VT323',monospace; font-size:15px; color:#ff0000; text-align:center; margin-top:5px; min-height:18px;"></p>
           </div>
-          <div style="border: 2px inset #666; background: #000050; padding: 8px; margin-bottom: 8px;">
-            <p style="font-family:'VT323',monospace; font-size:16px; color:#00ff00;">
-              <strong style="color:#ffff00;">CodeMonkey2000</strong> says:<br>
-              "React AND Angular?? dual wield king!! check out my homepage 2!! link in bio xD"
-            </p>
-          </div>
-          <div style="border: 2px inset #666; background: #000050; padding: 8px;">
-            <p style="font-family:'VT323',monospace; font-size:16px; color:#00ff00;">
-              <strong style="color:#ffff00;">HealthcareHacker99</strong> says:<br>
-              "10 years at Elevance respect bro. ur page rocks. best viewed in ie6 lol"
-            </p>
-          </div>
-          <div style="text-align:center; margin-top: 8px;">
-            <span style="font-family:'Press Start 2P',monospace; font-size:9px; color:#ff00ff; background:#000; border:1px solid #ff00ff; padding:4px 8px; cursor:pointer;">
-              [ SIGN GUESTBOOK ]
-            </span>
+
+          <!-- ENTRIES LIST -->
+          <div id="gb-entries">
+            <p style="font-family:'VT323',monospace; font-size:15px; color:#888; text-align:center;">Loading entries...</p>
           </div>
         </div>
       </div>
@@ -924,9 +945,9 @@
     </div>
     <div class="footer-text">
       <p>© 1999-2024 Matthew Bennett • All Rights Reserved • Best viewed at 800x600</p>
-      <p>This page has been visited <span style="color:#00ff00;">4,268</span> times since 1999!!</p>
+      <p>This page has been visited <span id="visit-counter-footer" style="color:#00ff00;">1</span> times since 1999!!</p>
       <p style="margin-top:4px;">
-        <a href="mailto:Matt.H.Bennett@gmail.com">webmaster@matthewbennett.net</a>
+        <a href="/cdn-cgi/l/email-protection#c489a5b0b0ea8cea86a1aaaaa1b0b084a3a9a5ada8eaa7aba9"><span class="__cf_email__" data-cfemail="4b3c2e29262a383f2e390b262a3f3f232e3c292e25252e3f3f65252e3f">[email&#160;protected]</span></a>
         &nbsp;|&nbsp;
         <span style="color:#ffcc00;">Geocities • Tripod • Angelfire</span>
       </p>
@@ -938,20 +959,346 @@
 
 </div>
 
-<script>
-  // Retro visitor counter randomization for flavor
-  const count = Math.floor(Math.random() * 9000) + 40000;
-  const formatted = count.toString().split('').join(' ');
-  const counter = document.querySelector('.visitor-counter span');
-  if (counter) counter.textContent = formatted;
 
-  // Retro alert on load
+<script>
+  // =============================================
+  // VISITOR COUNTER (persistent, shared)
+  // =============================================
+  async function initCounter() {
+    try {
+      // Increment shared visit count
+      let visits = 1;
+      try {
+        const res = await window.storage.get('visits', true);
+        visits = parseInt(res.value || '0', 10) + 1;
+      } catch(e) { visits = 1; }
+      await window.storage.set('visits', String(visits), true);
+
+      // Display with retro spacing
+      const formatted = String(visits).padStart(6, '0').split('').join(' ');
+      const el = document.getElementById('visit-counter');
+      if (el) el.textContent = formatted;
+      const el2 = document.getElementById('visit-counter-footer');
+      if (el2) el2.textContent = visits.toLocaleString();
+    } catch(e) {
+      console.warn('Counter error:', e);
+    }
+  }
+
+  // =============================================
+  // GUESTBOOK (persistent, shared)
+  // =============================================
+
+  // Seed entries shown if no real entries yet
+  const SEED_ENTRIES = [
+    { name: 'xX_RecruitPro_Xx', msg: 'wow gr8 resume page!! adding to my bookmarks!!!! 👍👍', ts: 1700000000000 },
+    { name: 'CodeMonkey2000',   msg: 'React AND Angular?? dual wield king!! check out my homepage 2!! link in bio xD', ts: 1700001000000 },
+    { name: 'HealthcareHacker99', msg: '10 years at Elevance respect bro. ur page rocks. best viewed in ie6 lol', ts: 1700002000000 }
+  ];
+
+  async function loadGuestbook() {
+    const container = document.getElementById('gb-entries');
+    if (!container) return;
+    try {
+      let entries = [];
+      try {
+        const res = await window.storage.get('guestbook-entries', true);
+        entries = JSON.parse(res.value || '[]');
+      } catch(e) { entries = []; }
+
+      const allEntries = [...SEED_ENTRIES, ...entries];
+
+      if (allEntries.length === 0) {
+        container.innerHTML = '<p style="font-family:\'VT323\',monospace;font-size:15px;color:#888;text-align:center;">No entries yet! Be the first to sign!! 👇</p>';
+        return;
+      }
+
+      // Newest real entries first, seeds at bottom
+      const realEntries = [...entries].reverse();
+      const displayEntries = [...realEntries, ...SEED_ENTRIES];
+
+      container.innerHTML = displayEntries.map((entry, i) => {
+        const d = new Date(entry.ts);
+        const dateStr = d.getFullYear() + '-' +
+          String(d.getMonth()+1).padStart(2,'0') + '-' +
+          String(d.getDate()).padStart(2,'0') + ' ' +
+          String(d.getHours()).padStart(2,'0') + ':' +
+          String(d.getMinutes()).padStart(2,'0');
+        const safe = entry.msg.replace(/</g,'&lt;').replace(/>/g,'&gt;');
+        const safeName = entry.name.replace(/</g,'&lt;').replace(/>/g,'&gt;');
+        return `
+          <div style="border:2px inset #666; background:#000050; padding:8px; margin-bottom:8px;">
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:4px; margin-bottom:3px;">
+              <strong style="font-family:'VT323',monospace; font-size:17px; color:#ffff00;">${safeName}</strong>
+              <span style="font-family:'VT323',monospace; font-size:13px; color:#555566;">${dateStr}</span>
+            </div>
+            <p style="font-family:'VT323',monospace; font-size:16px; color:#00ff00;">"${safe}"</p>
+          </div>`;
+      }).join('');
+    } catch(e) {
+      container.innerHTML = '<p style="font-family:\'VT323\',monospace;font-size:15px;color:#ff0000;text-align:center;">Error loading guestbook 😢</p>';
+    }
+  }
+
+  async function signGuestbook() {
+    const nameEl = document.getElementById('gb-name');
+    const msgEl  = document.getElementById('gb-msg');
+    const status = document.getElementById('gb-status');
+    const btn    = document.querySelector('button[onclick="signGuestbook()"]');
+
+    const name = (nameEl.value || '').trim();
+    const msg  = (msgEl.value  || '').trim();
+
+    if (!name) { status.textContent = '⚠ Please enter your name!!'; status.style.color='#ff4444'; return; }
+    if (!msg)  { status.textContent = '⚠ Message cannot be empty!!'; status.style.color='#ff4444'; return; }
+
+    status.textContent = '⏳ Signing...';
+    status.style.color = '#ffcc00';
+    if (btn) btn.disabled = true;
+
+    try {
+      let entries = [];
+      try {
+        const res = await window.storage.get('guestbook-entries', true);
+        entries = JSON.parse(res.value || '[]');
+      } catch(e) { entries = []; }
+
+      entries.push({ name, msg, ts: Date.now() });
+
+      // Keep max 50 real entries
+      if (entries.length > 50) entries = entries.slice(-50);
+
+      await window.storage.set('guestbook-entries', JSON.stringify(entries), true);
+
+      nameEl.value = '';
+      msgEl.value  = '';
+      status.textContent = '✅ Signed!! Thanks for visiting!! 🎉';
+      status.style.color = '#00ff00';
+
+      await loadGuestbook();
+
+      // Scroll to entries
+      document.getElementById('gb-entries').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+      setTimeout(() => {
+        status.textContent = '';
+        if (btn) btn.disabled = false;
+      }, 3000);
+    } catch(e) {
+      status.textContent = '❌ Error saving entry. Try again!!';
+      status.style.color = '#ff4444';
+      if (btn) btn.disabled = false;
+    }
+  }
+
+  // =============================================
+  // LO-FI MUSIC ENGINE (Web Audio API)
+  // =============================================
+  let audioCtx = null;
+  let masterGain = null;
+  let isPlaying = false;
+  let currentTrack = 0;
+  let schedulerTimer = null;
+  let currentBeat = 0;
+  let nextNoteTime = 0;
+  let allNodes = [];
+  let startTime = 0;
+  let progressTimer = null;
+
+  const N = {
+    C3:130.81,D3:146.83,Eb3:155.56,E3:164.81,F3:174.61,Fs3:185.00,G3:196.00,Gs3:207.65,A3:220.00,Bb3:233.08,B3:246.94,
+    C4:261.63,Cs4:277.18,D4:293.66,Eb4:311.13,E4:329.63,F4:349.23,Fs4:369.99,G4:392.00,Gs4:415.30,A4:440.00,Bb4:466.16,B4:493.88,
+    C5:523.25,D5:587.33,Eb5:622.25,E5:659.25,F5:698.46,G5:783.99,A5:880.00,Bb5:932.33
+  };
+
+  const TRACKS = [
+    {
+      name:"Late Night Debug", bpm:72,
+      melody:[N.C5,0,N.Bb4,0,N.G4,0,0,0,N.F4,0,N.G4,0,N.Bb4,0,0,0,N.C5,0,0,N.G4,0,N.F4,0,0,N.Eb4,0,N.F4,0,N.G4,0,0,0],
+      mVol:  [0.5,0,0.45,0,0.4,0,0,0,0.42,0,0.38,0,0.5,0,0,0,0.48,0,0,0.4,0,0.42,0,0,0.38,0,0.4,0,0.5,0,0,0],
+      bass:  [N.C3,0,0,0,0,0,N.C3,0,N.F3,0,0,0,0,0,N.F3,0,N.G3,0,0,0,0,0,N.G3,0,N.Eb3,0,0,0,0,0,N.Eb3,0],
+      chords:[[N.C4,N.Eb4,N.G4],0,0,0,0,0,0,[N.C4,N.Eb4,N.Bb4],[N.F3,N.A3,N.C4],0,0,0,0,0,0,0,
+              [N.G3,N.B3,N.D4],0,0,0,0,0,[N.G3,N.B3,N.F4],0,[N.Eb3,N.G3,N.Bb3],0,0,0,0,0,0,0]
+    },
+    {
+      name:"Stack Overflow Sunrise", bpm:80,
+      melody:[N.A4,0,N.C5,0,N.E5,0,0,0,N.D5,0,N.C5,0,N.A4,0,0,0,N.F4,0,N.A4,0,N.C5,0,0,0,N.B4,0,0,N.A4,0,0,N.G4,0],
+      mVol:  [0.45,0,0.5,0,0.55,0,0,0,0.48,0,0.42,0,0.5,0,0,0,0.4,0,0.45,0,0.52,0,0,0,0.48,0,0,0.4,0,0,0.42,0],
+      bass:  [N.A3,0,0,0,N.A3,0,0,0,N.D3,0,0,0,N.D3,0,0,0,N.F3,0,0,0,N.F3,0,0,0,N.E3,0,0,0,N.E3,0,0,0],
+      chords:[[N.A3,N.C4,N.E4],0,0,0,0,[N.A3,N.C4,N.E4],0,0,[N.D3,N.F3,N.A3],0,0,0,0,0,[N.D3,N.F3,N.C4],0,
+              [N.F3,N.A3,N.C4],0,0,0,0,0,0,0,[N.E3,N.Gs3,N.B3],0,0,0,0,[N.E3,N.B3,N.D4],0,0]
+    },
+    {
+      name:"404: Sleep Not Found", bpm:68,
+      melody:[N.G4,0,0,N.A4,N.Bb4,0,N.C5,0,0,N.Bb4,0,0,N.A4,0,0,0,N.G4,0,N.F4,0,N.Eb4,0,0,0,N.F4,0,N.G4,0,0,0,0,0],
+      mVol:  [0.5,0,0,0.42,0.48,0,0.52,0,0,0.45,0,0,0.5,0,0,0,0.48,0,0.42,0,0.38,0,0,0,0.44,0,0.5,0,0,0,0,0],
+      bass:  [N.G3,0,0,0,0,0,N.G3,0,N.C3,0,0,0,N.C3,0,0,0,N.G3,0,0,0,N.Eb3,0,0,0,N.F3,0,0,0,N.F3,0,0,0],
+      chords:[[N.G3,N.Bb3,N.D4],0,0,0,0,0,0,0,[N.C3,N.E3,N.G3],0,0,[N.C3,N.E3,N.Bb3],0,0,0,0,
+              [N.G3,N.B3,N.D4],0,0,0,[N.Eb3,N.G3,N.Bb3],0,0,0,[N.F3,N.A3,N.C4],0,0,0,0,0,0,0]
+    }
+  ];
+
+  function initAudio() {
+    if (audioCtx) return;
+    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    masterGain = audioCtx.createGain();
+    masterGain.gain.value = 0.6;
+    const lofi = audioCtx.createBiquadFilter();
+    lofi.type = 'lowpass'; lofi.frequency.value = 3200; lofi.Q.value = 0.8;
+    const convolver = audioCtx.createConvolver();
+    const rate = audioCtx.sampleRate;
+    const len = rate * 1.5;
+    const ir = audioCtx.createBuffer(2, len, rate);
+    for (let ch=0; ch<2; ch++) {
+      const d = ir.getChannelData(ch);
+      for (let i=0; i<len; i++) d[i] = (Math.random()*2-1)*Math.pow(1-i/len,2.5);
+    }
+    convolver.buffer = ir;
+    const wetGain = audioCtx.createGain(); wetGain.gain.value = 0.18;
+    const dryGain = audioCtx.createGain(); dryGain.gain.value = 0.82;
+    masterGain.connect(lofi);
+    lofi.connect(dryGain); lofi.connect(convolver);
+    convolver.connect(wetGain);
+    dryGain.connect(audioCtx.destination);
+    wetGain.connect(audioCtx.destination);
+  }
+
+  function playNote(freq, time, dur, type, vol, detune) {
+    if (!freq) return;
+    const osc = audioCtx.createOscillator();
+    const g = audioCtx.createGain();
+    osc.type = type; osc.frequency.value = freq;
+    osc.detune.value = (detune||0) + (Math.random()*6-3);
+    g.gain.setValueAtTime(0, time);
+    g.gain.linearRampToValueAtTime(vol, time+0.01);
+    g.gain.exponentialRampToValueAtTime(0.001, time+dur*0.9);
+    osc.connect(g); g.connect(masterGain);
+    osc.start(time); osc.stop(time+dur+0.05);
+    allNodes.push(osc);
+  }
+
+  function scheduleBeat(idx, t, track, sd) {
+    const tr = TRACKS[track];
+    const s = idx % tr.melody.length;
+    if (tr.melody[s]) {
+      playNote(tr.melody[s], t, sd*1.8, 'sine', (tr.mVol[s]||0.4)*0.7, 0);
+      playNote(tr.melody[s], t+0.005, sd*1.4, 'triangle', (tr.mVol[s]||0.4)*0.25, 0);
+    }
+    if (tr.bass[s]) {
+      playNote(tr.bass[s], t, sd*3.5, 'sawtooth', 0.18, 0);
+      playNote(tr.bass[s]*2, t, sd*2, 'sine', 0.08, 0);
+    }
+    if (tr.chords[s] && Array.isArray(tr.chords[s])) {
+      tr.chords[s].forEach((f,i) => playNote(f, t+i*0.008, sd*3.5, 'triangle', 0.10, 0));
+    }
+    const ds = s % 16;
+    if (ds===0||ds===8) {
+      const k=audioCtx.createOscillator(), kg=audioCtx.createGain();
+      k.frequency.setValueAtTime(150,t); k.frequency.exponentialRampToValueAtTime(40,t+0.12);
+      kg.gain.setValueAtTime(0.5,t); kg.gain.exponentialRampToValueAtTime(0.001,t+0.25);
+      k.connect(kg); kg.connect(masterGain); k.start(t); k.stop(t+0.3); allNodes.push(k);
+    }
+    if (ds===4||ds===12) {
+      const buf=audioCtx.createBuffer(1,audioCtx.sampleRate*0.15,audioCtx.sampleRate);
+      const d=buf.getChannelData(0); for(let i=0;i<d.length;i++) d[i]=Math.random()*2-1;
+      const src=audioCtx.createBufferSource(), sg=audioCtx.createGain();
+      const sf=audioCtx.createBiquadFilter(); sf.type='bandpass'; sf.frequency.value=2200; sf.Q.value=0.8;
+      sg.gain.setValueAtTime(0.18,t); sg.gain.exponentialRampToValueAtTime(0.001,t+0.12);
+      src.buffer=buf; src.connect(sf); sf.connect(sg); sg.connect(masterGain); src.start(t); src.stop(t+0.15); allNodes.push(src);
+    }
+    if (ds%2===0) {
+      const hb=audioCtx.createBuffer(1,audioCtx.sampleRate*0.04,audioCtx.sampleRate);
+      const hd=hb.getChannelData(0); for(let i=0;i<hd.length;i++) hd[i]=Math.random()*2-1;
+      const hs=audioCtx.createBufferSource(), hg=audioCtx.createGain();
+      const hf=audioCtx.createBiquadFilter(); hf.type='highpass'; hf.frequency.value=7000;
+      hg.gain.setValueAtTime(ds%4===0?0.07:0.04,t); hg.gain.exponentialRampToValueAtTime(0.001,t+0.04);
+      hs.buffer=hb; hs.connect(hf); hf.connect(hg); hg.connect(masterGain); hs.start(t); hs.stop(t+0.04); allNodes.push(hs);
+    }
+  }
+
+  function scheduler() {
+    if (!isPlaying) return;
+    const tr = TRACKS[currentTrack];
+    const sd = (60/tr.bpm)/4;
+    while (nextNoteTime < audioCtx.currentTime + 0.1) {
+      scheduleBeat(currentBeat, nextNoteTime, currentTrack, sd);
+      currentBeat++; nextNoteTime += sd;
+    }
+    schedulerTimer = setTimeout(scheduler, 50);
+  }
+
+  function updateProgress() {
+    if (!isPlaying || !audioCtx) return;
+    const elapsed = audioCtx.currentTime - startTime;
+    const tr = TRACKS[currentTrack];
+    const loopDur = (tr.melody.length * 60) / (tr.bpm * 4);
+    const pos = elapsed % loopDur;
+    const pct = (pos / loopDur) * 100;
+    const bar = document.getElementById('progress-bar');
+    const cur = document.getElementById('time-cur');
+    if (bar) bar.style.width = pct + '%';
+    if (cur) { const s=Math.floor(pos); cur.textContent=Math.floor(s/60)+':'+String(s%60).padStart(2,'0'); }
+    progressTimer = requestAnimationFrame(updateProgress);
+  }
+
+  function stopAll() {
+    clearTimeout(schedulerTimer);
+    cancelAnimationFrame(progressTimer);
+    allNodes.forEach(n => { try { n.stop(0); } catch(e){} });
+    allNodes = []; currentBeat = 0;
+  }
+
+  function togglePlay() {
+    initAudio();
+    if (audioCtx.state === 'suspended') audioCtx.resume();
+    if (isPlaying) {
+      isPlaying = false; stopAll();
+      document.getElementById('play-btn').textContent = '▶ PLAY';
+      document.getElementById('disc-emoji').style.animation = '';
+      const b=document.getElementById('progress-bar'); if(b) b.style.width='0%';
+      const c=document.getElementById('time-cur'); if(c) c.textContent='0:00';
+    } else {
+      isPlaying = true; currentBeat = 0;
+      nextNoteTime = audioCtx.currentTime + 0.05;
+      startTime = audioCtx.currentTime;
+      scheduler(); updateProgress();
+      document.getElementById('play-btn').textContent = '⏸ STOP';
+      document.getElementById('disc-emoji').style.animation = 'spin 3s linear infinite';
+    }
+  }
+
+  function nextTrack() {
+    const was = isPlaying;
+    if (isPlaying) { isPlaying=false; stopAll(); }
+    currentTrack = (currentTrack+1) % TRACKS.length;
+    updateTrackDisplay();
+    if (was) { isPlaying=true; currentBeat=0; nextNoteTime=audioCtx.currentTime+0.05; startTime=audioCtx.currentTime; scheduler(); updateProgress(); document.getElementById('play-btn').textContent='⏸ STOP'; document.getElementById('disc-emoji').style.animation='spin 3s linear infinite'; }
+  }
+
+  function prevTrack() {
+    const was = isPlaying;
+    if (isPlaying) { isPlaying=false; stopAll(); }
+    currentTrack = (currentTrack-1+TRACKS.length) % TRACKS.length;
+    updateTrackDisplay();
+    if (was) { isPlaying=true; currentBeat=0; nextNoteTime=audioCtx.currentTime+0.05; startTime=audioCtx.currentTime; scheduler(); updateProgress(); document.getElementById('play-btn').textContent='⏸ STOP'; document.getElementById('disc-emoji').style.animation='spin 3s linear infinite'; }
+  }
+
+  function updateTrackDisplay() {
+    const el=document.getElementById('track-name');
+    if (el) el.textContent=TRACKS[currentTrack].name;
+  }
+
+  function setVolume(val) {
+    if (masterGain) masterGain.gain.value = val/100;
+  }
+
+  // =============================================
+  // INIT on page load
+  // =============================================
   window.addEventListener('load', () => {
-    setTimeout(() => {
-      // Removed annoying alert - keeping it authentic but not TOO annoying
-    }, 500);
+    initCounter();
+    loadGuestbook();
   });
 </script>
-
 </body>
 </html>
