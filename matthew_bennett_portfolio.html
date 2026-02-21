@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Matthew Bennett's AWESOME Homepage!! :D</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=VT323&family=Press+Start+2P&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background-color: #000080;
+    background-image: 
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Ccircle cx='2' cy='2' r='1' fill='%23003'/%3E%3C/svg%3E");
+    font-family: 'Times New Roman', serif;
+    color: #ffffff;
+    min-height: 100vh;
+    padding: 10px;
+  }
+
+  /* Starfield background */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: 
+      radial-gradient(1px 1px at 10% 20%, white, transparent),
+      radial-gradient(1px 1px at 30% 50%, white, transparent),
+      radial-gradient(1px 1px at 50% 10%, white, transparent),
+      radial-gradient(1px 1px at 70% 80%, white, transparent),
+      radial-gradient(1px 1px at 90% 40%, white, transparent),
+      radial-gradient(1px 1px at 15% 70%, white, transparent),
+      radial-gradient(1px 1px at 45% 60%, rgba(255,255,200,0.8), transparent),
+      radial-gradient(1px 1px at 80% 25%, rgba(255,255,200,0.8), transparent),
+      radial-gradient(1px 1px at 55% 90%, white, transparent),
+      radial-gradient(1px 1px at 25% 35%, white, transparent),
+      radial-gradient(2px 2px at 60% 15%, rgba(255,255,150,0.6), transparent),
+      radial-gradient(1px 1px at 85% 65%, white, transparent);
+    background-color: #000020;
+    z-index: -1;
+  }
+
+  .page-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  /* ===== HEADER ===== */
+  .header {
+    text-align: center;
+    border: 4px ridge #ffff00;
+    background: linear-gradient(180deg, #000080 0%, #000040 100%);
+    padding: 10px;
+    margin-bottom: 10px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 4px;
+    background: repeating-linear-gradient(90deg, #ff0000 0 10px, #ff7700 10px 20px, #ffff00 20px 30px, #00ff00 30px 40px, #0000ff 40px 50px, #8b00ff 50px 60px);
+  }
+
+  .header h1 {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 22px;
+    color: #ffff00;
+    text-shadow: 3px 3px #ff0000, -1px -1px #ff7700;
+    margin-bottom: 8px;
+    animation: rainbow 2s linear infinite;
+  }
+
+  @keyframes rainbow {
+    0%   { color: #ff0000; text-shadow: 2px 2px #880000; }
+    15%  { color: #ff7700; text-shadow: 2px 2px #884400; }
+    30%  { color: #ffff00; text-shadow: 2px 2px #888800; }
+    45%  { color: #00ff00; text-shadow: 2px 2px #008800; }
+    60%  { color: #00ffff; text-shadow: 2px 2px #008888; }
+    75%  { color: #0088ff; text-shadow: 2px 2px #004488; }
+    90%  { color: #ff00ff; text-shadow: 2px 2px #880088; }
+    100% { color: #ff0000; text-shadow: 2px 2px #880000; }
+  }
+
+  .header .subtitle {
+    font-family: 'VT323', monospace;
+    font-size: 20px;
+    color: #00ffff;
+    letter-spacing: 2px;
+  }
+
+  .header .tagline {
+    font-size: 13px;
+    color: #ffcc00;
+    margin-top: 5px;
+    font-style: italic;
+  }
+
+  .visitor-counter {
+    font-family: 'VT323', monospace;
+    font-size: 18px;
+    color: #00ff00;
+    margin-top: 8px;
+  }
+
+  .visitor-counter span {
+    background: #000;
+    border: 2px inset #666;
+    padding: 2px 6px;
+    letter-spacing: 3px;
+    color: #00ff00;
+    font-family: 'VT323', monospace;
+  }
+
+  /* ===== MARQUEE ===== */
+  .marquee-bar {
+    background: #000000;
+    border: 2px solid #ff0000;
+    padding: 4px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .marquee-inner {
+    display: inline-block;
+    animation: marquee 18s linear infinite;
+    font-family: 'VT323', monospace;
+    font-size: 18px;
+    color: #ff0000;
+  }
+
+  @keyframes marquee {
+    0% { transform: translateX(100vw); }
+    100% { transform: translateX(-100%); }
+  }
+
+  /* ===== UNDER CONSTRUCTION ===== */
+  .under-construction {
+    text-align: center;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 9px;
+    color: #ffff00;
+    background: #ff6600;
+    border: 3px dashed #ffff00;
+    padding: 6px;
+    margin-bottom: 10px;
+    animation: blink 1s step-end infinite;
+  }
+
+  @keyframes blink {
+    50% { opacity: 0; }
+  }
+
+  /* ===== NAV ===== */
+  .nav {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+  }
+
+  .nav a {
+    background: linear-gradient(180deg, #c0c0c0, #808080);
+    border: 2px outset #c0c0c0;
+    color: #000080;
+    font-family: 'VT323', monospace;
+    font-size: 17px;
+    padding: 3px 10px;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: none;
+  }
+
+  .nav a:hover {
+    background: linear-gradient(180deg, #a0a0a0, #606060);
+    border: 2px inset #c0c0c0;
+    color: #ffff00;
+  }
+
+  .nav a:active {
+    border: 2px inset #808080;
+  }
+
+  /* ===== LAYOUT ===== */
+  .two-col {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+
+  /* ===== SIDEBAR ===== */
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .sidebar-box {
+    border: 3px ridge #c0c0c0;
+    background: #000040;
+    padding: 6px;
+  }
+
+  .sidebar-box h3 {
+    font-family: 'VT323', monospace;
+    font-size: 17px;
+    color: #ffff00;
+    border-bottom: 1px solid #ffff00;
+    margin-bottom: 6px;
+    text-align: center;
+    letter-spacing: 1px;
+  }
+
+  .sidebar-box p, .sidebar-box li {
+    font-family: 'VT323', monospace;
+    font-size: 16px;
+    color: #00ffff;
+    line-height: 1.4;
+  }
+
+  .sidebar-box ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .sidebar-box ul li::before {
+    content: '» ';
+    color: #ff0000;
+  }
+
+  .guestbook-link {
+    text-align: center;
+    margin-top: 4px;
+  }
+
+  .guestbook-link a {
+    color: #ff00ff;
+    font-family: 'VT323', monospace;
+    font-size: 16px;
+  }
+
+  /* ===== PIXEL DIVIDER ===== */
+  .pixel-divider {
+    height: 8px;
+    background: repeating-linear-gradient(90deg, #ff0000 0 8px, #ff7700 8px 16px, #ffff00 16px 24px, #00ff00 24px 32px, #00ffff 32px 40px, #0000ff 40px 48px, #8b00ff 48px 56px);
+    margin: 10px 0;
+  }
+
+  /* ===== MAIN CONTENT ===== */
+  .main-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .section-box {
+    border: 3px ridge #c0c0c0;
+    background: #000030;
+  }
+
+  .section-title {
+    background: linear-gradient(90deg, #000080, #0000ff, #000080);
+    border-bottom: 3px ridge #c0c0c0;
+    padding: 4px 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .section-title h2 {
+    font-family: 'VT323', monospace;
+    font-size: 22px;
+    color: #ffff00;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px #ff7700;
+  }
+
+  .section-title .icon {
+    font-size: 18px;
+  }
+
+  .section-content {
+    padding: 8px 10px;
+  }
+
+  /* About */
+  .about-text {
+    font-family: 'VT323', monospace;
+    font-size: 17px;
+    color: #c0ffff;
+    line-height: 1.6;
+  }
+
+  /* Experience entries */
+  .job {
+    border: 2px inset #808080;
+    background: #000050;
+    padding: 6px 8px;
+    margin-bottom: 8px;
+  }
+
+  .job:last-child { margin-bottom: 0; }
+
+  .job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-bottom: 4px;
+  }
+
+  .job-title {
+    font-family: 'VT323', monospace;
+    font-size: 19px;
+    color: #ffff00;
+  }
+
+  .job-company {
+    font-family: 'VT323', monospace;
+    font-size: 17px;
+    color: #ff00ff;
+  }
+
+  .job-date {
+    font-family: 'VT323', monospace;
+    font-size: 16px;
+    color: #00ff00;
+    white-space: nowrap;
+  }
+
+  .job ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .job ul li {
+    font-family: 'VT323', monospace;
+    font-size: 16px;
+    color: #c0c0ff;
+    line-height: 1.5;
+    padding-left: 16px;
+    position: relative;
+  }
+
+  .job ul li::before {
+    content: '✦';
+    position: absolute;
+    left: 0;
+    color: #ff6600;
+    font-size: 12px;
+    top: 2px;
+  }
+
+  /* Sub-company label */
+  .sub-company {
+    font-family: 'VT323', monospace;
+    font-size: 16px;
+    color: #00ffcc;
+    margin: 4px 0 2px;
+    border-left: 3px solid #ff6600;
+    padding-left: 6px;
+  }
+
+  /* Skills */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 6px;
+  }
+
+  .skill-category {
+    border: 2px inset #666;
+    background: #000050;
+    padding: 5px;
+  }
+
+  .skill-category h4 {
+    font-family: 'VT323', monospace;
+    font-size: 16px;
+    color: #ffcc00;
+    border-bottom: 1px dotted #ffcc00;
+    margin-bottom: 4px;
+  }
+
+  .skill-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3px;
+  }
+
+  .skill-pill {
+    background: #003300;
+    border: 1px solid #00ff00;
+    color: #00ff00;
+    font-family: 'VT323', monospace;
+    font-size: 14px;
+    padding: 1px 5px;
+  }
+
+  /* Certifications & Education */
+  .cert-item, .edu-item {
+    font-family: 'VT323', monospace;
+    font-size: 17px;
+    color: #c0ffff;
+    line-height: 1.6;
+    padding-left: 18px;
+    position: relative;
+  }
+
+  .cert-item::before { content: '🏆 '; position: absolute; left: 0; }
+  .edu-item::before  { content: '🎓 '; position: absolute; left: 0; }
+
+  /* Contact */
+  .contact-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'VT323', monospace;
+    font-size: 17px;
+  }
+
+  .contact-table td {
+    padding: 4px 8px;
+    border: 1px solid #333399;
+    color: #c0c0ff;
+  }
+
+  .contact-table td:first-child {
+    color: #ffcc00;
+    width: 100px;
+    background: #000060;
+  }
+
+  .contact-table a {
+    color: #00ffff;
+  }
+
+  /* ===== FOOTER ===== */
+  .footer {
+    text-align: center;
+    border: 3px ridge #c0c0c0;
+    background: #000040;
+    padding: 10px;
+    margin-top: 10px;
+  }
+
+  .footer .badges {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 8px;
+  }
+
+  .badge {
+    display: inline-block;
+    width: 88px;
+    height: 31px;
+    border: 1px solid #999;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 5px;
+    text-align: center;
+    line-height: 1.2;
+    overflow: hidden;
+    cursor: pointer;
+  }
+
+  .badge-ie    { background: linear-gradient(135deg, #0078d4, #003080); color: white; padding: 4px 2px; }
+  .badge-ns    { background: linear-gradient(135deg, #808000, #404000); color: #ffff00; padding: 4px 2px; }
+  .badge-react { background: linear-gradient(135deg, #20232a, #61dafb); color: #61dafb; padding: 4px 2px; }
+  .badge-y2k   { background: linear-gradient(135deg, #000000, #ff0000); color: #ffff00; padding: 4px 2px; }
+  .badge-ws    { background: linear-gradient(135deg, #ff6600, #ffcc00); color: #000; padding: 4px 2px; }
+  .badge-html  { background: linear-gradient(135deg, #ff4500, #ff8c00); color: white; padding: 4px 2px; }
+
+  .footer-text {
+    font-family: 'VT323', monospace;
+    font-size: 15px;
+    color: #8888cc;
+  }
+
+  .footer-text a { color: #00ccff; }
+
+  /* ===== FLOATING ELEMENTS ===== */
+  .geocities-gif {
+    text-align: center;
+    font-size: 30px;
+    animation: spin 3s linear infinite;
+    display: inline-block;
+  }
+
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+  }
+
+  .burst {
+    display: inline-block;
+    animation: burst 0.5s ease-in-out infinite alternate;
+    color: #ff0000;
+    font-size: 12px;
+    font-family: 'Press Start 2P', monospace;
+    background: #ffff00;
+    padding: 2px 6px;
+    border-radius: 2px;
+  }
+
+  @keyframes burst {
+    from { transform: scale(1) rotate(-3deg); }
+    to   { transform: scale(1.1) rotate(3deg); }
+  }
+
+  /* Tables */
+  table.retro {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  table.retro td {
+    border: 1px solid #336;
+    padding: 3px 6px;
+  }
+
+  /* ===== SCROLLBAR ===== */
+  ::-webkit-scrollbar { width: 16px; }
+  ::-webkit-scrollbar-track { background: #000080; border: 2px inset #c0c0c0; }
+  ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #c0c0c0, #808080); border: 2px outset #c0c0c0; }
+</style>
+</head>
+<body>
+
+<div class="page-wrapper">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div style="font-size:28px; margin-bottom: 4px;">
+      <span class="geocities-gif">⚙️</span>
+      &nbsp;&nbsp;
+      <span class="geocities-gif" style="animation-direction: reverse;">💻</span>
+    </div>
+    <h1>~*~ MATTHEW BENNETT ~*~</h1>
+    <div class="subtitle">★ SENIOR SOFTWARE ENGINEER ★</div>
+    <div class="tagline">Welcome to my corner of the World Wide Web! You are visitor #</div>
+    <div class="visitor-counter">
+      <span>0 0 4 2 6 8</span>
+    </div>
+    <div style="margin-top: 8px;">
+      <span class="burst">NEW!</span>
+      &nbsp;
+      <span style="font-family: 'VT323', monospace; font-size: 16px; color: #ccccff;">Now with 100% MORE TypeScript!!</span>
+      &nbsp;
+      <span class="burst">HOT!</span>
+    </div>
+  </div>
+
+  <!-- MARQUEE -->
+  <div class="marquee-bar">
+    <span class="marquee-inner">
+      ★★★ BEST VIEWED IN INTERNET EXPLORER 6.0 AT 800x600 RESOLUTION ★★★ &nbsp;&nbsp;&nbsp;&nbsp;
+      10+ YEARS EXPERIENCE IN HEALTHCARE SOFTWARE ★ REACT ★ ANGULAR ★ TYPESCRIPT ★ NEXT.JS ★ GRAPHQL &nbsp;&nbsp;&nbsp;&nbsp;
+      CURRENTLY AVAILABLE FOR EXCITING NEW OPPORTUNITIES!! &nbsp;&nbsp;&nbsp;&nbsp;
+      ~~~ SIGN MY GUESTBOOK!! PLZ!!! ~~~
+    </span>
+  </div>
+
+  <!-- UNDER CONSTRUCTION -->
+  <div class="under-construction">
+    ⚠⚠⚠ THIS PAGE IS UNDER CONSTRUCTION -- CHECK BACK DAILY FOR UPDATES!! ⚠⚠⚠
+  </div>
+
+  <!-- NAV -->
+  <div class="nav">
+    <a href="#about">[ ABOUT ME ]</a>
+    <a href="#experience">[ EXPERIENCE ]</a>
+    <a href="#skills">[ SKILLZ ]</a>
+    <a href="#edu">[ EDUCATION ]</a>
+    <a href="#contact">[ CONTACT ]</a>
+    <a href="#guestbook">[ GUESTBOOK ]</a>
+  </div>
+
+  <div class="pixel-divider"></div>
+
+  <!-- TWO-COLUMN LAYOUT -->
+  <div class="two-col">
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+
+      <div class="sidebar-box">
+        <h3>:: INFO ::</h3>
+        <ul>
+          <li>📍 Chesapeake, VA</li>
+          <li>💼 10+ yrs exp</li>
+          <li>🏥 Healthcare IT</li>
+          <li>⚛️ React Lover</li>
+          <li>🚀 TypeScript Fan</li>
+          <li>🤝 Team Player!!</li>
+        </ul>
+      </div>
+
+      <div class="sidebar-box">
+        <h3>:: MOOD ::</h3>
+        <p style="text-align:center; font-size: 28px;">🧑‍💻</p>
+        <p style="text-align:center;">currently: CODING!!</p>
+      </div>
+
+      <div class="sidebar-box">
+        <h3>:: FAVE LINKS ::</h3>
+        <ul>
+          <li><a href="https://linkedin.com/in/matthew-h-bennett/" style="color:#00ffcc; font-family:'VT323',monospace; font-size:16px;">LinkedIn</a></li>
+          <li><a href="mailto:Matt.H.Bennett@gmail.com" style="color:#00ffcc; font-family:'VT323',monospace; font-size:16px;">E-mail me!!</a></li>
+          <li>React Docs</li>
+          <li>Stack Overflow</li>
+          <li>GitHub</li>
+        </ul>
+      </div>
+
+      <div class="sidebar-box" style="text-align:center;">
+        <h3>:: NOW PLAYING ::</h3>
+        <p style="font-size:22px; animation: spin 4s linear infinite; display:inline-block;">💿</p>
+        <p>Lo-fi Coding Beats</p>
+        <p style="color:#ff9900;">▶ [▓▓▓▓░░░░] 2:34</p>
+      </div>
+
+      <div class="sidebar-box">
+        <h3>:: WEB RINGS ::</h3>
+        <p style="font-size: 13px; text-align:center; color: #ffccff;">
+          [&lt;&lt;] Healthcare Dev Webring [&gt;&gt;]
+        </p>
+        <p style="font-size: 13px; text-align:center; color: #ffccff; margin-top: 4px;">
+          [&lt;&lt;] JS Coders Ring [&gt;&gt;]
+        </p>
+      </div>
+
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
+
+      <!-- ABOUT -->
+      <div class="section-box" id="about">
+        <div class="section-title">
+          <span class="icon">🌟</span>
+          <h2>ABOUT ME!!</h2>
+          <span class="icon">🌟</span>
+        </div>
+        <div class="section-content">
+          <p class="about-text">
+            WELCOME to my TOTALLY AWESOME homepage!! I am Matthew Bennett, 
+            a Senior Software Engineer with 10+ years of experience in healthcare platforms!! 
+            I specialize in modern front-end development and user experience. 
+            I have a proven track record of building and scaling enterprise distributed web applications 
+            using React, Angular, TypeScript, and Tailwind CSS. I am also an experienced technical lead 
+            with expertise in developing healthcare solutions, implementing responsive design patterns, 
+            and optimizing application performance!!
+          </p>
+          <br>
+          <p class="about-text">
+            I demonstrate strong business acumen through close collaboration with business leaders 
+            and product teams to deliver high-impact solutions in fast-paced environments. 
+            I am an expert in scaled agile methodologies and cross-team collaboration!! 
+            Feel free to look around my page and SIGN MY GUESTBOOK!!!
+          </p>
+        </div>
+      </div>
+
+      <!-- EXPERIENCE -->
+      <div class="section-box" id="experience">
+        <div class="section-title">
+          <span class="icon">💼</span>
+          <h2>WORK EXPERIENCE</h2>
+          <span class="icon">💼</span>
+        </div>
+        <div class="section-content">
+
+          <!-- Consultant -->
+          <div class="job">
+            <div class="job-header">
+              <div>
+                <div class="job-title">✦ CONSULTANT</div>
+              </div>
+              <div class="job-date">2024 – PRESENT</div>
+            </div>
+
+            <div class="sub-company">▶ Qualified Health AI</div>
+            <ul>
+              <li>Drove development of innovative features for 0-1 B2C product and engaged existing/prospective clients to enhance product roadmap and drive customer engagement.</li>
+              <li>Enhanced AI-powered medical application with advanced document management capabilities including AI RAG generated summaries, interactive section highlighting, searchable content, and copyable AI text.</li>
+              <li>Thrived in fast-paced startup environment collaborating with cross-functional teams of designers, project managers, and developers.</li>
+            </ul>
+
+            <div class="sub-company">▶ mArb Inc.</div>
+            <ul>
+              <li>Designed and developed a company landing page with integrated contact functionality, effectively showcasing brand identity and capturing potential client leads.</li>
+              <li>Created a fully functional interactive demo application using Next.JS and MongoDB to demonstrate product capabilities and drive client engagement.</li>
+              <li>Collaborated directly with C-Level management and cross-functional team members to deliver tailored solutions aligned with strategic business requirements.</li>
+            </ul>
+
+            <div class="sub-company">▶ Platypus Health</div>
+            <ul>
+              <li>Designed and implemented customized platform solutions that directly addressed client requirements, resulting in successful project outcomes.</li>
+              <li>Communicated effectively with clients and team members through clear verbal discussions and well-structured written documentation.</li>
+              <li>Conducted thorough code reviews and analysis to identify optimization opportunities, enhancing performance and maintainability.</li>
+            </ul>
+          </div>
+
+          <!-- Elevance -->
+          <div class="job">
+            <div class="job-header">
+              <div>
+                <div class="job-title">✦ SOLUTIONS ENGINEER ADVISOR SR</div>
+                <div class="job-company">Elevance Health, Inc</div>
+              </div>
+              <div class="job-date">2014 – 2023</div>
+            </div>
+            <ul>
+              <li>Architected and developed full-stack internal and external facing healthcare applications using React, Tailwind, GraphQL, Jest, and Contentful CMS.</li>
+              <li>Built critical Medicaid Member Portal functionality using Angular and AngularJS, implementing comprehensive test coverage through Karma and Jest.</li>
+              <li>Led technical development for large-scale migration from legacy AngularJS to modern Angular framework, establishing architectural patterns and best practices.</li>
+              <li>Served as Technical Lead managing code quality and team growth through structured code reviews, mentoring team members, and deployment oversight.</li>
+              <li>Engineered frontend solutions to facilitate successful platform migration from Microsoft SharePoint to Oracle CMS.</li>
+              <li>Drove development and optimization for multiple high-traffic Medicaid websites serving Anthem and Amerigroup customers on SharePoint platform.</li>
+              <li>Created and implemented a reusable universal page template system in SharePoint, significantly reducing development time and maintaining consistent design patterns.</li>
+            </ul>
+          </div>
+
+          <!-- GDIT -->
+          <div class="job">
+            <div class="job-header">
+              <div>
+                <div class="job-title">✦ ASSOCIATE WEB DEVELOPER</div>
+                <div class="job-company">General Dynamics Information Technology</div>
+              </div>
+              <div class="job-date">2012 – 2014</div>
+            </div>
+            <ul>
+              <li>Collaborated on development efforts for Game Engine IV, a military simulation engine, enhancing training capabilities for Joint Forces Staff College wargaming exercises.</li>
+              <li>Executed large-scale migration of enterprise websites from legacy SharePoint 2007 and ColdFusion platforms to SharePoint 2010.</li>
+              <li>Architected and implemented an Applications Dashboard system providing real-time monitoring of server health, application status, and ticket tracking.</li>
+              <li>Strengthened cybersecurity posture by implementing Visual SourceSafe, conducting SCAP vulnerability assessments, and enforcing DoD STIG compliance standards.</li>
+              <li>Participated in development of GCCS2KML converter application enabling visualization of GCCS log data in Google Earth for enhanced wargaming simulations.</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- SKILLS -->
+      <div class="section-box" id="skills">
+        <div class="section-title">
+          <span class="icon">⚡</span>
+          <h2>MAD SKILLZ!!</h2>
+          <span class="icon">⚡</span>
+        </div>
+        <div class="section-content">
+          <div class="skills-grid">
+            <div class="skill-category">
+              <h4>💻 DEVELOPMENT</h4>
+              <div class="skill-pills">
+                <span class="skill-pill">Next.js</span>
+                <span class="skill-pill">React</span>
+                <span class="skill-pill">Angular</span>
+                <span class="skill-pill">TypeScript</span>
+                <span class="skill-pill">JavaScript</span>
+                <span class="skill-pill">HTML5</span>
+                <span class="skill-pill">CSS3</span>
+                <span class="skill-pill">C#</span>
+                <span class="skill-pill">C++</span>
+              </div>
+            </div>
+            <div class="skill-category">
+              <h4>🎨 UI FRAMEWORKS</h4>
+              <div class="skill-pills">
+                <span class="skill-pill">Tailwind</span>
+                <span class="skill-pill">Sass</span>
+                <span class="skill-pill">Bootstrap</span>
+              </div>
+            </div>
+            <div class="skill-category">
+              <h4>🧪 TESTING & QA</h4>
+              <div class="skill-pills">
+                <span class="skill-pill">Jest</span>
+                <span class="skill-pill">Karma</span>
+                <span class="skill-pill">Code Reviews</span>
+              </div>
+            </div>
+            <div class="skill-category">
+              <h4>🔌 APIs</h4>
+              <div class="skill-pills">
+                <span class="skill-pill">GraphQL</span>
+                <span class="skill-pill">REST</span>
+              </div>
+            </div>
+            <div class="skill-category">
+              <h4>🛠️ DEV TOOLS</h4>
+              <div class="skill-pills">
+                <span class="skill-pill">Git</span>
+                <span class="skill-pill">Visual Studio</span>
+                <span class="skill-pill">Jira</span>
+                <span class="skill-pill">Confluence</span>
+              </div>
+            </div>
+            <div class="skill-category">
+              <h4>📋 METHODOLOGIES</h4>
+              <div class="skill-pills">
+                <span class="skill-pill">Agile/SAFe</span>
+                <span class="skill-pill">CI/CD</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- EDUCATION & CERTS -->
+      <div class="section-box" id="edu">
+        <div class="section-title">
+          <span class="icon">🎓</span>
+          <h2>EDUCATION &amp; CERTS</h2>
+          <span class="icon">🎓</span>
+        </div>
+        <div class="section-content">
+          <div class="edu-item">
+            <strong style="color:#ffff00;">Bachelor of Science in Computer Science (BSCS)</strong><br>
+            <span style="color:#00ffcc;">American Sentinel University — Birmingham, AL</span>
+          </div>
+          <br>
+          <div class="cert-item">
+            <strong style="color:#ffff00;">SAFe Practitioner</strong><br>
+            <span style="color:#00ffcc;">Scaled Agile Framework Certification</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- CONTACT -->
+      <div class="section-box" id="contact">
+        <div class="section-title">
+          <span class="icon">📬</span>
+          <h2>CONTACT ME!!</h2>
+          <span class="icon">📬</span>
+        </div>
+        <div class="section-content">
+          <table class="contact-table">
+            <tr>
+              <td>📍 Location</td>
+              <td>Chesapeake, VA</td>
+            </tr>
+            <tr>
+              <td>📞 Phone</td>
+              <td>(757) 477-3253</td>
+            </tr>
+            <tr>
+              <td>📧 E-mail</td>
+              <td><a href="mailto:Matt.H.Bennett@gmail.com">Matt.H.Bennett@gmail.com</a></td>
+            </tr>
+            <tr>
+              <td>🔗 LinkedIn</td>
+              <td><a href="https://linkedin.com/in/matthew-h-bennett/" target="_blank">linkedin.com/in/matthew-h-bennett/</a></td>
+            </tr>
+          </table>
+          <br>
+          <p style="font-family:'VT323',monospace; font-size:16px; color:#ffcc00; text-align:center;">
+            *** E-mail is BEST. I check it like EVERY DAY!! ***
+          </p>
+        </div>
+      </div>
+
+      <!-- GUESTBOOK -->
+      <div class="section-box" id="guestbook">
+        <div class="section-title">
+          <span class="icon">📖</span>
+          <h2>GUESTBOOK</h2>
+          <span class="icon">📖</span>
+        </div>
+        <div class="section-content">
+          <p style="font-family:'VT323',monospace; font-size:17px; color:#ffcc00; margin-bottom: 8px;">
+            🌟 PLEASE SIGN MY GUESTBOOK!! It means so much to me!! 🌟
+          </p>
+          <div style="border: 2px inset #666; background: #000050; padding: 8px; margin-bottom: 8px;">
+            <p style="font-family:'VT323',monospace; font-size:16px; color:#00ff00;">
+              <strong style="color:#ffff00;">xX_RecruitPro_Xx</strong> says:<br>
+              "wow gr8 resume page!! adding to my bookmarks!!!! 👍👍"
+            </p>
+          </div>
+          <div style="border: 2px inset #666; background: #000050; padding: 8px; margin-bottom: 8px;">
+            <p style="font-family:'VT323',monospace; font-size:16px; color:#00ff00;">
+              <strong style="color:#ffff00;">CodeMonkey2000</strong> says:<br>
+              "React AND Angular?? dual wield king!! check out my homepage 2!! link in bio xD"
+            </p>
+          </div>
+          <div style="border: 2px inset #666; background: #000050; padding: 8px;">
+            <p style="font-family:'VT323',monospace; font-size:16px; color:#00ff00;">
+              <strong style="color:#ffff00;">HealthcareHacker99</strong> says:<br>
+              "10 years at Elevance respect bro. ur page rocks. best viewed in ie6 lol"
+            </p>
+          </div>
+          <div style="text-align:center; margin-top: 8px;">
+            <span style="font-family:'Press Start 2P',monospace; font-size:9px; color:#ff00ff; background:#000; border:1px solid #ff00ff; padding:4px 8px; cursor:pointer;">
+              [ SIGN GUESTBOOK ]
+            </span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="pixel-divider"></div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="badges">
+      <div class="badge badge-ie">Internet Explorer<br>6.0<br>BEST<br>VIEWED<br>HERE</div>
+      <div class="badge badge-ns">Netscape<br>Navigator<br>COMPATIBLE!</div>
+      <div class="badge badge-react">⚛<br>REACT<br>POWERED</div>
+      <div class="badge badge-y2k">Y2K<br>COMPLIANT<br>✓</div>
+      <div class="badge badge-ws">Made with<br>Notepad.exe</div>
+      <div class="badge badge-html">VALID<br>HTML<br>4.0!!</div>
+    </div>
+    <div class="footer-text">
+      <p>© 1999-2024 Matthew Bennett • All Rights Reserved • Best viewed at 800x600</p>
+      <p>This page has been visited <span style="color:#00ff00;">4,268</span> times since 1999!!</p>
+      <p style="margin-top:4px;">
+        <a href="mailto:Matt.H.Bennett@gmail.com">webmaster@matthewbennett.net</a>
+        &nbsp;|&nbsp;
+        <span style="color:#ffcc00;">Geocities • Tripod • Angelfire</span>
+      </p>
+      <p style="margin-top: 6px; font-size: 13px; color: #666688;">
+        Last Updated: 02/20/2026 • Page Loading... ██████████ 100%
+      </p>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  // Retro visitor counter randomization for flavor
+  const count = Math.floor(Math.random() * 9000) + 40000;
+  const formatted = count.toString().split('').join(' ');
+  const counter = document.querySelector('.visitor-counter span');
+  if (counter) counter.textContent = formatted;
+
+  // Retro alert on load
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      // Removed annoying alert - keeping it authentic but not TOO annoying
+    }, 500);
+  });
+</script>
+
+</body>
+</html>
