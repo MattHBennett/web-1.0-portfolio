@@ -625,7 +625,7 @@
         <h3>:: NOW PLAYING ::</h3>
         <p id="disc-emoji" style="font-size:22px; display:inline-block;">💿</p>
         <p id="track-name" style="font-family:'VT323',monospace; font-size:15px; color:#00ffcc;">Lo-fi Coding Beats</p>
-        <p style="font-family:'VT323',monospace; font-size:13px; color:#aaaaff; margin: 2px 0;">Track 1 / 3</p>
+        <p id="track-number" style="font-family:'VT323',monospace; font-size:13px; color:#aaaaff; margin: 2px 0;">Track 1 / 3</p>
         <div style="margin: 5px 0;">
           <div style="background:#000; border:1px inset #666; height:8px; width:100%; position:relative;">
             <div id="progress-bar" style="background:linear-gradient(90deg,#00ff00,#00cc00); height:100%; width:0%; transition:width 0.5s;"></div>
@@ -1286,6 +1286,8 @@
   function updateTrackDisplay() {
     const el=document.getElementById('track-name');
     if (el) el.textContent=TRACKS[currentTrack].name;
+    const tn=document.getElementById('track-number');
+    if (tn) tn.textContent='Track '+(currentTrack+1)+' / '+TRACKS.length;
   }
 
   function setVolume(val) {
